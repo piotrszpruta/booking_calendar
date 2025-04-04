@@ -9,7 +9,6 @@ import '../model/booking_service.dart';
 import '../model/enums.dart' as bc;
 import '../util/booking_util.dart';
 import 'booking_dialog.dart';
-import 'booking_explanation.dart';
 import 'booking_slot.dart';
 import 'common_button.dart';
 import 'common_card.dart';
@@ -114,7 +113,7 @@ class _BookingCalendarMainState extends State<BookingCalendarMain> {
     controller.selectFirstDayByHoliday(startOfDay, endOfDay);
   }
 
-  CalendarFormat _calendarFormat = CalendarFormat.twoWeeks;
+  CalendarFormat _calendarFormat = CalendarFormat.month;
 
   late DateTime _selectedDay;
   late DateTime _focusedDay;
@@ -229,32 +228,6 @@ class _BookingCalendarMainState extends State<BookingCalendarMain> {
                       },
                     ),
                   ),
-                  const SizedBox(height: 8),
-                  widget.bookingExplanation ??
-                      Wrap(
-                        alignment: WrapAlignment.spaceAround,
-                        spacing: 8.0,
-                        runSpacing: 8.0,
-                        direction: Axis.horizontal,
-                        children: [
-                          BookingExplanation(
-                              color: widget.availableSlotColor ??
-                                  Colors.greenAccent,
-                              text: widget.availableSlotText ?? "Available"),
-                          BookingExplanation(
-                              color: widget.selectedSlotColor ??
-                                  Colors.orangeAccent,
-                              text: widget.selectedSlotText ?? "Selected"),
-                          BookingExplanation(
-                              color: widget.bookedSlotColor ?? Colors.redAccent,
-                              text: widget.bookedSlotText ?? "Booked"),
-                          if (widget.hideBreakTime != null &&
-                              widget.hideBreakTime == false)
-                            BookingExplanation(
-                                color: widget.pauseSlotColor ?? Colors.grey,
-                                text: widget.pauseSlotText ?? "Break"),
-                        ],
-                      ),
                   const SizedBox(height: 8),
                   StreamBuilder<dynamic>(
                     stream: widget.getBookingStream(
