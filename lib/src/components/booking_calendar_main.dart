@@ -19,7 +19,6 @@ class BookingCalendarMain extends StatefulWidget {
     required this.getBookingStream,
     required this.convertStreamResultToDateTimeRanges,
     required this.uploadBooking,
-    this.bookingExplanation,
     this.bookingGridCrossAxisCount,
     this.bookingGridChildAspectRatio,
     this.formatDateTime,
@@ -57,7 +56,6 @@ class BookingCalendarMain extends StatefulWidget {
       convertStreamResultToDateTimeRanges;
 
   ///Customizable
-  final Widget? bookingExplanation;
   final int? bookingGridCrossAxisCount;
   final double? bookingGridChildAspectRatio;
   final String Function(DateTime dt)? formatDateTime;
@@ -163,6 +161,10 @@ class _BookingCalendarMainState extends State<BookingCalendarMain> {
                 children: [
                   CommonCard(
                     child: TableCalendar(
+                      headerStyle: const HeaderStyle(
+                        formatButtonVisible: false,
+                        titleCentered: true,
+                      ),
                       startingDayOfWeek: widget.startingDayOfWeek?.toTC() ??
                           tc.StartingDayOfWeek.monday,
                       holidayPredicate: (day) {

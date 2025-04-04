@@ -157,7 +157,6 @@ class BookingCalendar extends StatelessWidget {
         uploadBooking: uploadBooking,
         bookingButtonColor: bookingButtonColor,
         bookingButtonText: bookingButtonText,
-        bookingExplanation: bookingExplanation,
         bookingGridChildAspectRatio: bookingGridChildAspectRatio,
         bookingGridCrossAxisCount: bookingGridCrossAxisCount,
         formatDateTime: formatDateTime,
