@@ -1,5 +1,6 @@
 import 'package:booking_calendar/src/components/common_card.dart';
 import 'package:flutter/material.dart';
+import 'package:nil/nil.dart';
 
 class BookingSlot extends StatelessWidget {
   const BookingSlot({
@@ -43,9 +44,10 @@ class BookingSlot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return (hideBreakSlot != null && hideBreakSlot == true && isPauseTime)
-        ? const SizedBox(height: 0, width: 0,)
-        : GestureDetector(
+    if ((hideBreakSlot != null && hideBreakSlot == true && isPauseTime)) {
+      return nil;
+    } else {
+      return GestureDetector(
             onTap: (!isBooked && !isPauseTime) ? onTap : null,
             child: CommonCard(
                 margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
@@ -54,5 +56,6 @@ class BookingSlot extends StatelessWidget {
                 color: getSlotColor(),
                 child: child),
           );
+    }
   }
 }
