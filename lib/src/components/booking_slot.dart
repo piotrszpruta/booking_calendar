@@ -50,7 +50,7 @@ class BookingSlot extends StatelessWidget {
       return GestureDetector(
             onTap: (!isBooked && !isPauseTime) ? onTap : null,
             child: CommonCard(
-                margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 40),
                 padding:
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                 color: getSlotColor(),
